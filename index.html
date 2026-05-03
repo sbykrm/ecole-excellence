@@ -2,32 +2,30 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>École Privée Excellence</title>
+<title>École Les Petits Génies</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Poppins', sans-serif;
+  font-family:'Fredoka', sans-serif;
   scroll-behavior:smooth;
 }
 
 body{
-  background:#f5f7fa;
+  background:#fffaf0;
 }
 
 /* HEADER */
 header{
   position:fixed;
   width:100%;
-  top:0;
-  background:rgba(44,62,80,0.8);
-  backdrop-filter: blur(10px);
+  background:#ff6b6b;
+  padding:15px;
   z-index:1000;
 }
 
@@ -35,7 +33,6 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 30px;
   color:white;
 }
 
@@ -51,18 +48,13 @@ nav ul li{
 nav a{
   color:white;
   text-decoration:none;
-  transition:0.3s;
-}
-
-nav a:hover{
-  color:#00c6ff;
+  font-weight:bold;
 }
 
 /* HERO */
 .hero{
   height:100vh;
-  background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-  url('https://images.unsplash.com/photo-1588072432836-e10032774350') center/cover;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
   display:flex;
   justify-content:center;
   align-items:center;
@@ -72,20 +64,17 @@ nav a:hover{
 
 .hero h1{
   font-size:3rem;
-  animation:fadeDown 1s ease;
-}
-
-.hero p{
-  margin:20px 0;
-  animation:fadeUp 1.2s ease;
+  animation:bounce 2s infinite;
 }
 
 .btn{
-  background:linear-gradient(45deg,#00c6ff,#0072ff);
+  background:#4ecdc4;
   padding:12px 25px;
-  color:white;
   border-radius:30px;
+  color:white;
   text-decoration:none;
+  display:inline-block;
+  margin-top:20px;
   transition:0.3s;
 }
 
@@ -95,46 +84,68 @@ nav a:hover{
 
 /* SECTIONS */
 .section{
-  padding:100px 20px;
+  padding:80px 20px;
   text-align:center;
 }
 
+.section h2{
+  color:#ff6b6b;
+  margin-bottom:20px;
+}
+
+/* CARDS */
 .cards{
   display:flex;
-  justify-content:center;
   flex-wrap:wrap;
+  justify-content:center;
   gap:20px;
 }
 
 .card{
   background:white;
-  padding:25px;
-  width:260px;
-  border-radius:15px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+  padding:20px;
+  width:250px;
+  border-radius:20px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.1);
   transition:0.4s;
-  opacity:0;
-  transform:translateY(50px);
-}
-
-.card.show{
-  opacity:1;
-  transform:translateY(0);
 }
 
 .card:hover{
-  transform:translateY(-10px);
+  transform:translateY(-10px) rotate(1deg);
+}
+
+/* ACTIVITES */
+.activities{
+  background:#f0f9ff;
+}
+
+/* GALERIE */
+.gallery{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+}
+
+.gallery img{
+  width:200px;
+  border-radius:15px;
+  transition:0.3s;
+}
+
+.gallery img:hover{
+  transform:scale(1.1);
 }
 
 /* FORM */
 form{
-  max-width:500px;
+  max-width:400px;
   margin:auto;
 }
 
 input, textarea{
   width:100%;
-  padding:12px;
+  padding:10px;
   margin:10px 0;
   border-radius:10px;
   border:1px solid #ccc;
@@ -142,42 +153,22 @@ input, textarea{
 
 /* FOOTER */
 footer{
-  background:#2c3e50;
+  background:#ff6b6b;
   color:white;
   padding:20px;
-  text-align:center;
 }
 
-/* ANIMATIONS */
-@keyframes fadeDown{
-  from{opacity:0; transform:translateY(-50px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(50px);}
-  to{opacity:1; transform:translateY(0);}
+/* ANIMATION */
+@keyframes bounce{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
 }
 
 /* MOBILE */
 @media(max-width:768px){
-  nav ul{
-    display:none;
+  .cards{
     flex-direction:column;
-    background:#2c3e50;
-    position:absolute;
-    top:60px;
-    right:0;
-    width:200px;
-  }
-
-  nav ul.active{
-    display:flex;
-  }
-
-  .menu-toggle{
-    cursor:pointer;
-    font-size:22px;
+    align-items:center;
   }
 }
 </style>
@@ -187,12 +178,12 @@ footer{
 
 <header>
   <nav>
-    <h2>École Excellence</h2>
-    <div class="menu-toggle">☰</div>
+    <h2>🎓 Les Petits Génies</h2>
     <ul>
       <li><a href="#accueil">Accueil</a></li>
-      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#apropos">École</a></li>
       <li><a href="#programmes">Programmes</a></li>
+      <li><a href="#activites">Activités</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -200,28 +191,52 @@ footer{
 
 <section class="hero" id="accueil">
   <div>
-    <h1>Bienvenue à l'École Excellence</h1>
-    <p>Une éducation moderne pour un avenir brillant</p>
-    <a href="#contact" class="btn">S'inscrire</a>
+    <h1>Bienvenue à notre école 🎈</h1>
+    <p>Apprendre en s’amusant !</p>
+    <a href="#contact" class="btn">Inscription</a>
   </div>
 </section>
 
 <section class="section" id="apropos">
-  <h2>À propos</h2>
-  <p>Notre école offre un enseignement innovant avec des méthodes modernes adaptées à chaque élève.</p>
+  <h2>🏫 Notre école</h2>
+  <p>
+    L’école Les Petits Génies offre un environnement éducatif chaleureux,
+    sécurisé et moderne pour accompagner chaque enfant dans son développement.
+  </p>
 </section>
 
 <section class="section" id="programmes">
-  <h2>Nos Programmes</h2>
+  <h2>📚 Nos Programmes</h2>
   <div class="cards">
-    <div class="card">Primaire</div>
-    <div class="card">Collège</div>
-    <div class="card">Lycée</div>
+    <div class="card">🎨 Maternelle<br>Jeux & créativité</div>
+    <div class="card">📖 Primaire<br>Apprentissage solide</div>
+    <div class="card">💻 Informatique<br>Initiation digitale</div>
+  </div>
+</section>
+
+<section class="section activities" id="activites">
+  <h2>🎯 Activités</h2>
+  <div class="cards">
+    <div class="card">⚽ Sport</div>
+    <div class="card">🎭 Théâtre</div>
+    <div class="card">🎨 Dessin</div>
+    <div class="card">🎵 Musique</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>📸 Galerie</h2>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1603570419984-79f2cb5b6c5d">
+    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350">
+    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754">
   </div>
 </section>
 
 <section class="section" id="contact">
-  <h2>Contact</h2>
+  <h2>📞 Contact</h2>
+  <p>📍 Safi – Maroc | 📧 contact@ecole.com</p>
+
   <form id="form">
     <input type="text" placeholder="Nom" required>
     <input type="email" placeholder="Email" required>
@@ -231,34 +246,27 @@ footer{
 </section>
 
 <footer>
-  <p>© 2024 École Excellence</p>
+  <p>© 2024 Les Petits Génies</p>
 </footer>
 
 <script>
-// MENU MOBILE
-const toggle = document.querySelector(".menu-toggle");
-const nav = document.querySelector("nav ul");
-
-toggle.onclick = () => {
-  nav.classList.toggle("active");
-};
-
-// ANIMATION SCROLL
+// animation scroll
 const cards = document.querySelectorAll(".card");
 
-window.addEventListener("scroll", () => {
-  cards.forEach(card => {
-    const top = card.getBoundingClientRect().top;
+window.addEventListener("scroll", ()=>{
+  cards.forEach(card=>{
+    let top = card.getBoundingClientRect().top;
     if(top < window.innerHeight - 50){
-      card.classList.add("show");
+      card.style.opacity="1";
+      card.style.transform="translateY(0)";
     }
   });
 });
 
-// FORM
+// form
 document.getElementById("form").addEventListener("submit", function(e){
   e.preventDefault();
-  alert("Message envoyé !");
+  alert("Message envoyé 🎉");
 });
 </script>
 
