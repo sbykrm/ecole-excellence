@@ -1,118 +1,186 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>École Privée Excellence</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>École Privée Excellence</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-    body {
-      line-height: 1.6;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+  scroll-behavior:smooth;
+}
 
-    header {
-      background: #2c3e50;
-      color: white;
-      padding: 15px;
-      position: sticky;
-      top: 0;
-    }
+body{
+  background:#f5f7fa;
+}
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+/* HEADER */
+header{
+  position:fixed;
+  width:100%;
+  top:0;
+  background:rgba(44,62,80,0.8);
+  backdrop-filter: blur(10px);
+  z-index:1000;
+}
 
-    nav ul {
-      display: flex;
-      list-style: none;
-    }
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+  color:white;
+}
 
-    nav ul li {
-      margin-left: 20px;
-    }
+nav ul{
+  display:flex;
+  list-style:none;
+}
 
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-    }
+nav ul li{
+  margin-left:20px;
+}
 
-    .hero {
-      background: url('https://images.unsplash.com/photo-1588072432836-e10032774350') no-repeat center/cover;
-      height: 80vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-    }
+nav a{
+  color:white;
+  text-decoration:none;
+  transition:0.3s;
+}
 
-    .hero h1 {
-      font-size: 3em;
-    }
+nav a:hover{
+  color:#00c6ff;
+}
 
-    .section {
-      padding: 50px 20px;
-      text-align: center;
-    }
+/* HERO */
+.hero{
+  height:100vh;
+  background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  url('https://images.unsplash.com/photo-1588072432836-e10032774350') center/cover;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+}
 
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
+.hero h1{
+  font-size:3rem;
+  animation:fadeDown 1s ease;
+}
 
-    .card {
-      background: #f4f4f4;
-      padding: 20px;
-      width: 250px;
-      border-radius: 10px;
-    }
+.hero p{
+  margin:20px 0;
+  animation:fadeUp 1.2s ease;
+}
 
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: #3498db;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
+.btn{
+  background:linear-gradient(45deg,#00c6ff,#0072ff);
+  padding:12px 25px;
+  color:white;
+  border-radius:30px;
+  text-decoration:none;
+  transition:0.3s;
+}
 
-    form {
-      max-width: 500px;
-      margin: auto;
-    }
+.btn:hover{
+  transform:scale(1.1);
+}
 
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-    }
+/* SECTIONS */
+.section{
+  padding:100px 20px;
+  text-align:center;
+}
 
-    footer {
-      background: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 15px;
-    }
+.cards{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:20px;
+}
 
-    @media(max-width: 768px){
-      .cards {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
+.card{
+  background:white;
+  padding:25px;
+  width:260px;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+  transition:0.4s;
+  opacity:0;
+  transform:translateY(50px);
+}
+
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.card:hover{
+  transform:translateY(-10px);
+}
+
+/* FORM */
+form{
+  max-width:500px;
+  margin:auto;
+}
+
+input, textarea{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+
+/* FOOTER */
+footer{
+  background:#2c3e50;
+  color:white;
+  padding:20px;
+  text-align:center;
+}
+
+/* ANIMATIONS */
+@keyframes fadeDown{
+  from{opacity:0; transform:translateY(-50px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(50px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav ul{
+    display:none;
+    flex-direction:column;
+    background:#2c3e50;
+    position:absolute;
+    top:60px;
+    right:0;
+    width:200px;
+  }
+
+  nav ul.active{
+    display:flex;
+  }
+
+  .menu-toggle{
+    cursor:pointer;
+    font-size:22px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -120,6 +188,7 @@
 <header>
   <nav>
     <h2>École Excellence</h2>
+    <div class="menu-toggle">☰</div>
     <ul>
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#apropos">À propos</a></li>
@@ -132,37 +201,28 @@
 <section class="hero" id="accueil">
   <div>
     <h1>Bienvenue à l'École Excellence</h1>
-    <p>Une éducation de qualité pour un avenir meilleur</p>
-    <a href="#contact" class="btn">Inscription</a>
+    <p>Une éducation moderne pour un avenir brillant</p>
+    <a href="#contact" class="btn">S'inscrire</a>
   </div>
 </section>
 
 <section class="section" id="apropos">
   <h2>À propos</h2>
-  <p>Notre école privée offre une formation de qualité avec un encadrement personnalisé pour chaque élève.</p>
+  <p>Notre école offre un enseignement innovant avec des méthodes modernes adaptées à chaque élève.</p>
 </section>
 
 <section class="section" id="programmes">
   <h2>Nos Programmes</h2>
   <div class="cards">
-    <div class="card">
-      <h3>Primaire</h3>
-      <p>Un apprentissage solide dès le jeune âge.</p>
-    </div>
-    <div class="card">
-      <h3>Collège</h3>
-      <p>Développement des compétences académiques.</p>
-    </div>
-    <div class="card">
-      <h3>Lycée</h3>
-      <p>Préparation aux études supérieures.</p>
-    </div>
+    <div class="card">Primaire</div>
+    <div class="card">Collège</div>
+    <div class="card">Lycée</div>
   </div>
 </section>
 
 <section class="section" id="contact">
   <h2>Contact</h2>
-  <form id="contactForm">
+  <form id="form">
     <input type="text" placeholder="Nom" required>
     <input type="email" placeholder="Email" required>
     <textarea placeholder="Message" required></textarea>
@@ -171,14 +231,35 @@
 </section>
 
 <footer>
-  <p>© 2024 École Excellence - Tous droits réservés</p>
+  <p>© 2024 École Excellence</p>
 </footer>
 
 <script>
-  document.getElementById("contactForm").addEventListener("submit", function(e){
-    e.preventDefault();
-    alert("Message envoyé avec succès !");
+// MENU MOBILE
+const toggle = document.querySelector(".menu-toggle");
+const nav = document.querySelector("nav ul");
+
+toggle.onclick = () => {
+  nav.classList.toggle("active");
+};
+
+// ANIMATION SCROLL
+const cards = document.querySelectorAll(".card");
+
+window.addEventListener("scroll", () => {
+  cards.forEach(card => {
+    const top = card.getBoundingClientRect().top;
+    if(top < window.innerHeight - 50){
+      card.classList.add("show");
+    }
   });
+});
+
+// FORM
+document.getElementById("form").addEventListener("submit", function(e){
+  e.preventDefault();
+  alert("Message envoyé !");
+});
 </script>
 
 </body>
